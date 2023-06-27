@@ -18,6 +18,10 @@ adopt-info: west
 confinement: strict
 
 parts:
+  tools:
+    plugin: nil
+    stage-packages:
+      - git
   west:
     plugin: python
     source: https://github.com/zephyrproject-rtos/west.git
