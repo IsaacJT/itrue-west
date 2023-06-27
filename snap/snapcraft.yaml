@@ -37,3 +37,9 @@ apps:
     command: bin/west
     plugs:
       - home
+
+layout:
+  /usr/lib/git-core:
+    bind: $SNAP/usr/lib/git-core
+  /usr/share/git-core:
+    bind: $SNAP/usr/share/git-core
