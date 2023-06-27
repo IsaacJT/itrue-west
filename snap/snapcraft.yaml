@@ -1,0 +1,35 @@
+name: itrue-west
+base: core22
+summary: West (Zephyr’s meta-tool)
+description: |
+  The Zephyr project includes a swiss-army knife command line tool named west.
+
+  West’s built-in commands provide a multiple repository management system with
+  features inspired by Google’s Repo tool and Git submodules. West is also
+  “pluggable”: you can write your own west extension commands which add
+  additional features to west. Zephyr uses this to provide conveniences for
+  building applications, flashing and debugging them, and more.
+
+  ---
+
+  NOTE: this snap is a community project and wholly unsupported by the Zephyr
+  project
+adopt-info: west
+confinement: strict
+
+parts:
+  west:
+    plugin: python
+    source: https://github.com/zephyrproject-rtos/west.git
+    source-type: git
+    source-branch: main
+    override-build: |
+      craftctl default
+      craftctl set version="$(git -C ${CRAFT_PART_SRC} describe --tags)"
+      craftctl set grade="stable"
+
+apps:
+  itrue-west:
+    command: bin/west
+    plugs:
+      - home
