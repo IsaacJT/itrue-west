@@ -37,6 +37,7 @@ apps:
     command: bin/west
     plugs:
       - home
+      - network
 
 layout:
   /usr/lib/git-core:
