@@ -23,7 +23,6 @@ parts:
     stage-packages:
       - git
       - cmake
-      - python3-requests
   west:
     plugin: python
     source: https://github.com/zephyrproject-rtos/west.git
