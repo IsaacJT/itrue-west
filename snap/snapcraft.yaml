@@ -28,6 +28,8 @@ parts:
     source: https://github.com/zephyrproject-rtos/west.git
     source-type: git
     source-branch: main
+    stage-packages:
+      - python3-requests
     override-build: |
       craftctl default
       craftctl set version="$(git -C ${CRAFT_PART_SRC} describe --tags)"
@@ -39,6 +41,8 @@ apps:
     plugs:
       - home
       - network
+    environment:
+      PYTHONPATH: "${SNAP}/usr/lib/python3/dist-packages"
 
 layout:
   /usr/lib/git-core:
